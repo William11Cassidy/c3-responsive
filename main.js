@@ -1,22 +1,24 @@
 color = "blue";
 width_of_line = 2;
-
+canvas=document.getElementById("myCanvas")
+ctx=canvas.getContext("2d")
 width=screen.width
 newwidth=width-70
 newhight=screen.height-300
 if(width<992){
 }
-
+var last_position_of_x, last_position_of_y;
 
 canvas.addEventListener("touchstart", my_touchstart);
 
-function my_touchstart(e)
-mouseEvent = "mouseDown";
+function my_touchstart(e){
 
-
+}
 
 canvas.addEventListener("touchmove", my_touchmove);
 function my_touchmove(e)
+{
+
 
 
      current_position_of_touch_x = e.touches[0].clientX - canvas.offsetLeft;
@@ -26,8 +28,6 @@ function my_touchmove(e)
     ctx.strokeStyle = color;
     ctx.lineWidth = width_of_line;
 
-    console.log("Last position of x and y coordinates = ");
-    console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
     ctx.moveTo(last_position_of_x, last_position_of_y);
 
     console.log("Current position of x and y coordinates = ");
@@ -38,3 +38,4 @@ function my_touchmove(e)
 
     last_position_of_x = current_position_of_touch_x; 
     last_position_of_y = current_position_of_touch_y;
+}
